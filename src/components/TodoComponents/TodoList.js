@@ -5,22 +5,9 @@ import React from 'react'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 
-const TodoList = ({
-  todos,
-  todo,
-  handleChange,
-  handleSubmit,
-  handleComplete,
-  handleDelete,
-}) => {
+const TodoList = ({ todos, handleComplete }) => {
   return (
     <div>
-      <TodoForm
-        todo={todo}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        handleDelete={handleDelete}
-      />
       <ul>
         {todos &&
           todos.map(todo => (

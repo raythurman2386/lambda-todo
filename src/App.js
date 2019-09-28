@@ -1,6 +1,7 @@
 import React from 'react'
 
 // Component
+import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList'
 
 class App extends React.Component {
@@ -65,13 +66,15 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList
-          todos={this.state.todos}
+        <TodoForm
           todo={this.state.todo}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          handleComplete={this.handleComplete}
           handleDelete={this.handleDelete}
+        />
+        <TodoList
+          todos={this.state.todos}
+          handleComplete={this.handleComplete}
         />
       </div>
     )
