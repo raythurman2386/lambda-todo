@@ -14,7 +14,7 @@ const TodoList = ({ todos, todo, handleChange, handleSubmit }) => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      {todos && todos.map(todo => <Todo key={todo.id} todo={todo} />)}
+      <ul>{todos && todos.map(todo => <Todo key={todo.id} todo={todo} />)}</ul>
     </div>
   )
 }
