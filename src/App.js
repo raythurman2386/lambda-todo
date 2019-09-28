@@ -30,6 +30,10 @@ class App extends React.Component {
   }
 
   // handleSubmit for the form
+  handleSubmit = e => {
+    e.preventDefault()
+    console.log('clicked submit')
+  }
 
   // handleDelete to remove the item
 
