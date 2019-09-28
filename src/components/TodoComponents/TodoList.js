@@ -3,12 +3,14 @@ import React from 'react'
 
 // component
 import Todo from './Todo'
+import TodoForm from './TodoForm'
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, todo, handleChange }) => {
   return (
     <div>
       <h3>Todo List Component</h3>
-      {todos && todos.map(todo => <Todo todo={todo} />)}
+      <TodoForm todo={todo} handleChange={handleChange} />
+      {todos && todos.map(todo => <Todo key={todo.id} todo={todo} />)}
     </div>
   )
 }
