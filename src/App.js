@@ -13,6 +13,14 @@ class App extends Component {
     }
   }
 
+  // Get items from localStorage
+  componentDidMount() {
+    if (localStorage.getItem('todos') === undefined) {
+      this.setState({ todos: [], todo: '' })
+    }
+    return localStorage.setItem('todos', JSON.stringify(...this.state.todos))
+  }
+
   // handleChange for the input
   handleChange = e => {
     this.setState({ todo: e.target.value })
@@ -22,10 +30,13 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault()
     let newTodo = { task: this.state.todo, id: Date.now(), completed: false }
-    this.setState({
-      todos: [...this.state.todos, newTodo],
-      todo: '',
-    })
+    this.setState(
+      {
+        todos: [...this.state.todos, newTodo],
+        todo: '',
+      },
+      () => localStorage.setItem('todos', JSON.stringify(...this.state.todos)),
+    )
   }
 
   // handleComplete
