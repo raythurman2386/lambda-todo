@@ -40,6 +40,19 @@ class App extends React.Component {
     })
   }
 
+  // handleComplete
+  handleComplete = id => {
+    let newTodos = this.state.todos.slice()
+    newTodos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+        return todo
+      } else {
+        return todo
+      }
+    })
+  }
+
   // handleDelete to remove the item
 
   render() {
