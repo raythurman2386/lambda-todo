@@ -11,10 +11,10 @@ const TodoList = ({
   handleChange,
   handleSubmit,
   handleComplete,
+  handleDelete,
 }) => {
   return (
     <div>
-      <h3>Todo List Component</h3>
       <TodoForm
         todo={todo}
         handleChange={handleChange}
@@ -23,7 +23,12 @@ const TodoList = ({
       <ul>
         {todos &&
           todos.map(todo => (
-            <Todo key={todo.id} todo={todo} handleComplete={handleComplete} />
+            <Todo
+              key={todo.id}
+              todo={todo}
+              handleComplete={handleComplete}
+              handleDelete={handleDelete}
+            />
           ))}
       </ul>
     </div>

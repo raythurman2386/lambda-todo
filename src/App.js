@@ -53,6 +53,9 @@ class App extends React.Component {
   }
 
   // handleDelete to remove the item
+  handleDelete = () => {
+    console.log('deleted!')
+  }
 
   render() {
     return (
@@ -64,6 +67,7 @@ class App extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleComplete={this.handleComplete}
+          handleDelete={this.handleDelete}
         />
       </div>
     )
