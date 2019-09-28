@@ -19,16 +19,12 @@ const TodoList = ({
         todo={todo}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleDelete={handleDelete}
       />
       <ul>
         {todos &&
           todos.map(todo => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              handleComplete={handleComplete}
-              handleDelete={handleDelete}
-            />
+            <Todo key={todo.id} todo={todo} handleComplete={handleComplete} />
           ))}
       </ul>
     </div>

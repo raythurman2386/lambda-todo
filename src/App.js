@@ -42,6 +42,7 @@ class App extends React.Component {
 
   // handleComplete
   handleComplete = id => {
+    console.log('completed')
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
