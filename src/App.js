@@ -42,14 +42,13 @@ class App extends React.Component {
 
   // handleComplete
   handleComplete = id => {
-    let newTodos = this.state.todos.slice()
-    newTodos.map(todo => {
-      if (todo.id === id) {
-        todo.completed = !todo.completed
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
         return todo
-      } else {
-        return todo
-      }
+      }),
     })
   }
 
@@ -64,6 +63,7 @@ class App extends React.Component {
           todo={this.state.todo}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          handleComplete={this.handleComplete}
         />
       </div>
     )

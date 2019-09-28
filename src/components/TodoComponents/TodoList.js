@@ -5,7 +5,13 @@ import React from 'react'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 
-const TodoList = ({ todos, todo, handleChange, handleSubmit }) => {
+const TodoList = ({
+  todos,
+  todo,
+  handleChange,
+  handleSubmit,
+  handleComplete,
+}) => {
   return (
     <div>
       <h3>Todo List Component</h3>
@@ -14,7 +20,12 @@ const TodoList = ({ todos, todo, handleChange, handleSubmit }) => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      <ul>{todos && todos.map(todo => <Todo key={todo.id} todo={todo} />)}</ul>
+      <ul>
+        {todos &&
+          todos.map(todo => (
+            <Todo key={todo.id} todo={todo} handleComplete={handleComplete} />
+          ))}
+      </ul>
     </div>
   )
 }

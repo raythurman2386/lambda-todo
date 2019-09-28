@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Todo = ({ todo }) => {
-  return <li>{todo.task}</li>
+const Todo = ({ todo, handleComplete }) => {
+  return <li onClick={() => handleComplete(todo.id)}>{todo.task}</li>
 }
 
 export default Todo
