@@ -56,6 +56,9 @@ class App extends React.Component {
   // handleDelete to remove the item
   handleDelete = () => {
     console.log('deleted!')
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed),
+    })
   }
 
   render() {
