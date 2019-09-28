@@ -32,7 +32,12 @@ class App extends React.Component {
   // handleSubmit for the form
   handleSubmit = e => {
     e.preventDefault()
-    console.log('clicked submit')
+    let newTodo = { task: this.state.todo, id: Date.now(), completed: false }
+    console.log(newTodo)
+    this.setState({
+      todos: [...this.state.todos, newTodo],
+      todo: '',
+    })
   }
 
   // handleDelete to remove the item
