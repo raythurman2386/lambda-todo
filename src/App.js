@@ -45,6 +45,7 @@ class App extends React.Component {
           todos={this.state.todos}
           todo={this.state.todo}
           handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
         />
       </div>
     )

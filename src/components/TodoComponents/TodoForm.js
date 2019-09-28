@@ -1,8 +1,8 @@
 import React from 'react'
 
-const TodoForm = ({ todo, handleChange }) => {
+const TodoForm = ({ todo, handleChange, handleSubmit }) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         name='todo'
         value={todo}
