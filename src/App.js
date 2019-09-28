@@ -24,12 +24,15 @@ class App extends React.Component {
     }
   }
 
+  // handleChange for the input
   handleChange = e => {
     this.setState({ todo: e.target.value })
   }
 
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  // handleSubmit for the form
+
+  // handleDelete to remove the item
+
   render() {
     return (
       <div>
