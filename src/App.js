@@ -33,7 +33,7 @@ class App extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     let newTodo = { task: this.state.todo, id: Date.now(), completed: false }
-    console.log(newTodo)
+    // console.log(newTodo)
     this.setState({
       todos: [...this.state.todos, newTodo],
       todo: '',
@@ -42,7 +42,7 @@ class App extends React.Component {
 
   // handleComplete
   handleComplete = id => {
-    console.log('completed')
+    // console.log('completed')
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
@@ -55,7 +55,7 @@ class App extends React.Component {
 
   // handleDelete to remove the item
   handleDelete = () => {
-    console.log('deleted!')
+    // console.log('deleted!')
     this.setState({
       todos: this.state.todos.filter(todo => !todo.completed),
     })
