@@ -18,8 +18,17 @@ class App extends Component {
   componentDidMount() {
     if (localStorage.getItem('todos') === undefined) {
       this.setState({ todos: [], todo: '' })
+    } else {
+      let getTodos = JSON.parse(localStorage.getItem('todos'))
+      this.setState({ todos: [getTodos], todo: '' })
     }
-    return localStorage.setItem('todos', JSON.stringify(...this.state.todos))
+  }
+
+  // See if state changed
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos !== this.state.todos) {
+      return localStorage.setItem('todos', JSON.stringify(...this.state.todos))
+    }
   }
 
   // handleChange for the input
