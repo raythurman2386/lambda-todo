@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 // Component
 import TodoForm from './components/TodoComponents/TodoForm'
@@ -60,7 +61,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm
           todo={this.state.todo}
@@ -72,9 +73,14 @@ class App extends Component {
           todos={this.state.todos}
           handleComplete={this.handleComplete}
         />
-      </div>
+      </Wrapper>
     )
   }
 }
 
 export default App
+
+const Wrapper = styled.div`
+  margin: 0 auto;
+  text-align: center;
+`
