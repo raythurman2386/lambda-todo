@@ -81,6 +81,7 @@ class App extends Component {
 export default App
 
 const Wrapper = styled.div`
+  max-width: 450px;
   margin: 0 auto;
   text-align: center;
 `
