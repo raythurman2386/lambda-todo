@@ -10,6 +10,7 @@ const TodoForm = ({ todo, handleChange, handleSubmit, handleDelete }) => {
           value={todo}
           onChange={handleChange}
           placeholder='Add Todo'
+          required
         />
         <ButtonWrapper type='submit'>Add Todo</ButtonWrapper>
       </form>
