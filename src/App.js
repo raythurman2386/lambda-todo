@@ -33,14 +33,14 @@ class App extends Component {
     let newTodo = { task: this.state.todo, id: Date.now(), completed: false }
 
     // new todo list upon submitting
-    const newTodos = [...this.state.todos, newTodo]
+    const newTodosList = [...this.state.todos, newTodo]
 
     // add updated list to LS
-    localStorage.setItem('todos', JSON.stringify(newTodos))
+    localStorage.setItem('todos', JSON.stringify(newTodosList))
 
     // Set the state
     this.setState({
-      todos: newTodos,
+      todos: newTodosList,
       todo: '',
     })
   }
@@ -48,7 +48,7 @@ class App extends Component {
   // handleComplete
   handleComplete = id => {
     // loop over todos and check for the proper id that is being completed
-    const newTodoList = this.state.todos.map(todo => {
+    const newTodosComplete = this.state.todos.map(todo => {
       if (todo.id === id) {
         return {
           ...todo,
@@ -61,10 +61,10 @@ class App extends Component {
     })
 
     // add the newTodoList to localStorage
-    localStorage.setItem('todos', JSON.stringify(newTodoList))
+    localStorage.setItem('todos', JSON.stringify(newTodosComplete))
 
     this.setState({
-      todos: newTodoList,
+      todos: newTodosComplete,
       todo: '',
     })
   }
