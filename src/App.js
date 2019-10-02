@@ -16,18 +16,9 @@ class App extends Component {
 
   // Get items from localStorage
   componentDidMount() {
-    if (localStorage.getItem('todos') === null) {
-      this.setState({ todos: [], todo: '' })
-    } else {
-      let getTodos = JSON.parse(localStorage.getItem('todos'))
-      this.setState({ todos: [getTodos], todo: '' })
-    }
-  }
-
-  // See if state changed
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.todos !== this.state.todos) {
-      return localStorage.setItem('todos', JSON.stringify(this.state.todos))
+    if (localStorage.getItem('todos') !== null) {
+      const tasks = JSON.parse(localStorage.getItem('todos'))
+      this.setState({ todos: tasks, todo: '' })
     }
   }
 
