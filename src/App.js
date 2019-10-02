@@ -17,8 +17,8 @@ class App extends Component {
   // Get items from localStorage
   componentDidMount() {
     if (localStorage.getItem('todos') !== null) {
-      const tasks = JSON.parse(localStorage.getItem('todos'))
-      this.setState({ todos: tasks, todo: '' })
+      const storedTodos = JSON.parse(localStorage.getItem('todos'))
+      this.setState({ todos: storedTodos, todo: '' })
     }
   }
 
@@ -31,31 +31,56 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault()
     let newTodo = { task: this.state.todo, id: Date.now(), completed: false }
-    this.setState(
-      {
-        todos: [...this.state.todos, newTodo],
-        todo: '',
-      },
-      () => localStorage.setItem('todos', JSON.stringify(...this.state.todos)),
-    )
+
+    // new todo list upon submitting
+    const newTodos = [...this.state.todos, newTodo]
+
+    // add updated list to LS
+    localStorage.setItem('todos', JSON.stringify(newTodos))
+
+    // Set the state
+    this.setState({
+      todos: newTodos,
+      todo: '',
+    })
   }
 
   // handleComplete
   handleComplete = id => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed
+    // loop over todos and check for the proper id that is being completed
+    const newTodoList = this.state.todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
         }
-        return todo
-      }),
+      }
+
+      // If id doesn't match, return that todo
+      return todo
+    })
+
+    // add the newTodoList to localStorage
+    localStorage.setItem('todos', JSON.stringify(newTodoList))
+
+    this.setState({
+      todos: newTodoList,
+      todo: '',
     })
   }
 
   // handleDelete to remove the item
   handleDelete = () => {
+    // filter out the completed todos
+    const updateDeleted = this.state.todos.filter(todo => !todo.completed)
+
+    // add the new list to local storage after deleting
+    localStorage.setItem('todos', JSON.stringify(updateDeleted))
+
+    // set the state to the proper list
     this.setState({
-      todos: this.state.todos.filter(todo => !todo.completed),
+      todos: updateDeleted,
+      todo: '',
     })
   }
 
